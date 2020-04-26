@@ -8,14 +8,25 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        Text("Hello, World!")
-    }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+struct ContentView: View
+{
+    
+    
+    var planets = ["Mercury", "Venus", "Earth", "Mars", "Ceres", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Haumea", "Makemake", "Eris"]
+    
+    
+    var body: some View
+    {
+        NavigationView
+        {
+            List(planets, id: \.self)
+            {
+                eachPlanet in
+                Text(eachPlanet)
+            }
+                .navigationBarTitle("Planets")
+        }
     }
 }
