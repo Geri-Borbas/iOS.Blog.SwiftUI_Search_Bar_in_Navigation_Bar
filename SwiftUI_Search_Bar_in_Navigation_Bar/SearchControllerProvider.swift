@@ -6,7 +6,7 @@
 //  Copyright © 2020. Geri Borbás. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 
 class SearchControllerProvider: NSObject, ObservableObject
@@ -36,4 +36,35 @@ extension SearchControllerProvider: UISearchResultsUpdating
         if let searchText = searchController.searchBar.text
         { self.searchText = searchText }
     }
+}
+
+
+struct SearchControllerProviderModifier: ViewModifier
+{
+    
+    
+    let searchControllerProvider: SearchControllerProvider
+    
+    
+    func body(content: Content) -> some View
+    {
+        content
+            .overlay(
+                ViewControllerResolver
+                {
+                    viewController in
+                    viewController.navigationItem.searchController = self.searchControllerProvider.searchController
+                }
+                    .frame(width: 0, height: 0)
+            )
+    }
+}
+
+
+extension View
+{
+    
+    
+    func addSearchControllerToNavigationBar(from searchControllerProvider: SearchControllerProvider) -> some View
+    { return self.modifier(SearchControllerProviderModifier(searchControllerProvider: searchControllerProvider)) }
 }

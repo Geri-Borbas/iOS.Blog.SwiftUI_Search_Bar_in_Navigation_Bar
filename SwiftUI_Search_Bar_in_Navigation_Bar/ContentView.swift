@@ -42,14 +42,7 @@ struct ContentView: View
                 }
             }
                 .navigationBarTitle("Planets")
-                .overlay(
-                    ViewControllerResolver
-                    {
-                        viewController in
-                        viewController.navigationItem.searchController = self.searchControllerProvider.searchController
-                    }
-                        .frame(width: 0, height: 0)
-                )
+                .addSearchControllerToNavigationBar(from: self.searchControllerProvider)
         }
     }
 }
