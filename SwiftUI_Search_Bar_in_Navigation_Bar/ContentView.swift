@@ -15,16 +15,25 @@ struct ContentView: View
     
     
     var planets = ["Mercury", "Venus", "Earth", "Mars", "Ceres", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Haumea", "Makemake", "Eris"]
+    @State var searchText: String = ""
     
     
     var body: some View
     {
         NavigationView
         {
-            List(planets, id: \.self)
+            List
             {
-                eachPlanet in
-                Text(eachPlanet)
+                TextField("Search", text: $searchText)
+                    .padding(7)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(8)
+                
+                ForEach(planets.filter{ searchText.isEmpty || $0.localizedStandardContains(searchText) }, id: \.self)
+                {
+                    eachPlanet in
+                    Text(eachPlanet)
+                }
             }
                 .navigationBarTitle("Planets")
         }
