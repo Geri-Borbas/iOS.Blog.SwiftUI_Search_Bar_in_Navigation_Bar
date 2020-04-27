@@ -14,8 +14,12 @@ struct ContentView: View
 {
     
     
-    var planets = ["Mercury", "Venus", "Earth", "Mars", "Ceres", "Jupiter", "Saturn", "Uranus", "Neptune", "Pluto", "Haumea", "Makemake", "Eris"]
+    var planets =
+        ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"] +
+        ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
+    
     @State var searchText: String = ""
+    var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
     
     
     var body: some View
@@ -35,7 +39,7 @@ struct ContentView: View
                     ViewControllerResolver
                     {
                         viewController in
-                        viewController.navigationItem.searchController = UISearchController(searchResultsController: nil)
+                        viewController.navigationItem.searchController = self.searchControllerProvider.searchController
                     }
                         .frame(width: 0, height: 0)
                 )

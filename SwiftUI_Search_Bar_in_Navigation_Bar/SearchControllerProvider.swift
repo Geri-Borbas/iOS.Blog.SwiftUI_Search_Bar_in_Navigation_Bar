@@ -1,5 +1,5 @@
 //
-//  SearchController.swift
+//  SearchControllerProvider.swift
 //  SwiftUI_Search_Bar_in_Navigation_Bar
 //
 //  Created by Geri Borbás on 2020. 04. 27..
@@ -13,9 +13,13 @@ class SearchControllerProvider
 {
     
     
-    let searchController = UISearchController(searchResultsController: nil)
+    let searchController: UISearchController
     
     
-    init
+    init()
+    {
+        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController.obscuresBackgroundDuringPresentation = false
+    }
     
 }
