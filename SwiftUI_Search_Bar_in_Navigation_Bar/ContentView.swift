@@ -18,8 +18,8 @@ struct ContentView: View
         ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"] +
         ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
     
-    @State var searchText: String = ""
-    var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
+    
+    @ObservedObject var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
     
     
     var body: some View
@@ -28,7 +28,14 @@ struct ContentView: View
         {
             List
             {                
-                ForEach(planets.filter{ searchText.isEmpty || $0.localizedStandardContains(searchText) }, id: \.self)
+                ForEach(
+                    planets.filter
+                    {
+                        searchControllerProvider.searchText.isEmpty ||
+                        $0.localizedStandardContains(searchControllerProvider.searchText)
+                    },
+                    id: \.self
+                )
                 {
                     eachPlanet in
                     Text(eachPlanet)

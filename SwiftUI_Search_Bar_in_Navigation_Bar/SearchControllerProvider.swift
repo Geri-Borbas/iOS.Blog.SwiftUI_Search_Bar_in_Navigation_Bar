@@ -9,10 +9,11 @@
 import UIKit
 
 
-class SearchControllerProvider: NSObject
+class SearchControllerProvider: NSObject, ObservableObject
 {
     
     
+    @Published var searchText: String = ""
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     
@@ -31,6 +32,8 @@ extension SearchControllerProvider: UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController)
     {
-        print(searchController.searchBar.text)
+        // Publish search text changes.
+        if let searchText = searchController.searchBar.text
+        { self.searchText = searchText }
     }
 }
