@@ -23,12 +23,7 @@ struct ContentView: View
         NavigationView
         {
             List
-            {
-                TextField("Search", text: $searchText)
-                    .padding(7)
-                    .background(Color(.systemGray6))
-                    .cornerRadius(8)
-                
+            {                
                 ForEach(planets.filter{ searchText.isEmpty || $0.localizedStandardContains(searchText) }, id: \.self)
                 {
                     eachPlanet in
@@ -36,6 +31,14 @@ struct ContentView: View
                 }
             }
                 .navigationBarTitle("Planets")
+                .overlay(
+                    ViewControllerResolver
+                    {
+                        viewController in
+                        viewController.navigationItem.searchController = UISearchController(searchResultsController: nil)
+                    }
+                        .frame(width: 0, height: 0)
+                )
         }
     }
 }
