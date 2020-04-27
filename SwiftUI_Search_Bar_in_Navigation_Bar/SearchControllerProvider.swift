@@ -9,17 +9,28 @@
 import UIKit
 
 
-class SearchControllerProvider
+class SearchControllerProvider: NSObject
 {
     
     
-    let searchController: UISearchController
+    let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     
-    init()
+    override init()
     {
-        self.searchController = UISearchController(searchResultsController: nil)
+        super.init()
         self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
     }
+}
+
+
+extension SearchControllerProvider: UISearchResultsUpdating
+{
+   
     
+    func updateSearchResults(for searchController: UISearchController)
+    {
+        print(searchController.searchBar.text)
+    }
 }
