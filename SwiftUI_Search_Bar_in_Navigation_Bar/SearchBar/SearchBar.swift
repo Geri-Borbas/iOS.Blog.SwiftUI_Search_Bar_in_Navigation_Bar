@@ -13,7 +13,7 @@ class SearchBar: NSObject, ObservableObject
 {
     
     
-    @Published var searchText: String = ""
+    @Published var text: String = ""
     let searchController: UISearchController = UISearchController(searchResultsController: nil)
     
     
@@ -32,18 +32,18 @@ extension SearchBar: UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController)
     {
-        // Publish search text changes.
-        if let searchText = searchController.searchBar.text
-        { self.searchText = searchText }
+        // Publish search bar text changes.
+        if let searchBarText = searchController.searchBar.text
+        { self.text = searchBarText }
     }
 }
 
 
-struct SearchControllerProviderModifier: ViewModifier
+struct SearchBarModifier: ViewModifier
 {
     
     
-    let searchControllerProvider: SearchBar
+    let searchBar: SearchBar
     
     
     func body(content: Content) -> some View
@@ -53,7 +53,7 @@ struct SearchControllerProviderModifier: ViewModifier
                 ViewControllerResolver
                 {
                     viewController in
-                    viewController.navigationItem.searchController = self.searchControllerProvider.searchController
+                    viewController.navigationItem.searchController = self.searchBar.searchController
                 }
                     .frame(width: 0, height: 0)
             )
@@ -65,6 +65,6 @@ extension View
 {
     
     
-    func addSearchControllerToNavigationBar(from searchControllerProvider: SearchBar) -> some View
-    { return self.modifier(SearchControllerProviderModifier(searchControllerProvider: searchControllerProvider)) }
+    func add(_ searchBar: SearchBar) -> some View
+    { return self.modifier(SearchBarModifier(searchBar: searchBar)) }
 }

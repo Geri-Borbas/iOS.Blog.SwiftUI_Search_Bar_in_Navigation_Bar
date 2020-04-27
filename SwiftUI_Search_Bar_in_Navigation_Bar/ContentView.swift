@@ -19,7 +19,7 @@ struct ContentView: View
         ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
     
     
-    @ObservedObject var searchControllerProvider: SearchControllerProvider = SearchControllerProvider()
+    @ObservedObject var searchBar: SearchBar = SearchBar()
     
     
     var body: some View
@@ -31,8 +31,8 @@ struct ContentView: View
                 ForEach(
                     planets.filter
                     {
-                        searchControllerProvider.searchText.isEmpty ||
-                        $0.localizedStandardContains(searchControllerProvider.searchText)
+                        searchBar.text.isEmpty ||
+                        $0.localizedStandardContains(searchBar.text)
                     },
                     id: \.self
                 )
@@ -42,7 +42,7 @@ struct ContentView: View
                 }
             }
                 .navigationBarTitle("Planets")
-                .addSearchControllerToNavigationBar(from: self.searchControllerProvider)
+                .add(self.searchBar)
         }
     }
 }

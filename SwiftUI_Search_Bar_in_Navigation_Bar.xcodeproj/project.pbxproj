@@ -14,7 +14,7 @@
 		553B0E2B24564FAF004DEFA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553B0E2A24564FAF004DEFA3 /* Preview Assets.xcassets */; };
 		553B0E2E24564FAF004DEFA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553B0E2C24564FAF004DEFA3 /* LaunchScreen.storyboard */; };
 		553B0E3624565AD4004DEFA3 /* ViewControllerResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B0E3524565AD4004DEFA3 /* ViewControllerResolver.swift */; };
-		55F29FDF245735DA0081E329 /* SearchControllerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29FDE245735DA0081E329 /* SearchControllerProvider.swift */; };
+		55F29FDF245735DA0081E329 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F29FDE245735DA0081E329 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		553B0E2D24564FAF004DEFA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		553B0E2F24564FAF004DEFA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553B0E3524565AD4004DEFA3 /* ViewControllerResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerResolver.swift; sourceTree = "<group>"; };
-		55F29FDE245735DA0081E329 /* SearchControllerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerProvider.swift; sourceTree = "<group>"; };
+		55F29FDE245735DA0081E329 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,7 @@
 				553B0E2124564FAC004DEFA3 /* AppDelegate.swift */,
 				553B0E2324564FAC004DEFA3 /* SceneDelegate.swift */,
 				553B0E2524564FAC004DEFA3 /* ContentView.swift */,
-				55F29FDE245735DA0081E329 /* SearchControllerProvider.swift */,
-				553B0E3524565AD4004DEFA3 /* ViewControllerResolver.swift */,
+				55F29FE024576D3D0081E329 /* SearchBar */,
 				553B0E2724564FAF004DEFA3 /* Assets.xcassets */,
 				553B0E2C24564FAF004DEFA3 /* LaunchScreen.storyboard */,
 				553B0E2F24564FAF004DEFA3 /* Info.plist */,
@@ -79,6 +78,15 @@
 				553B0E2A24564FAF004DEFA3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		55F29FE024576D3D0081E329 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				55F29FDE245735DA0081E329 /* SearchBar.swift */,
+				553B0E3524565AD4004DEFA3 /* ViewControllerResolver.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,7 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				553B0E3624565AD4004DEFA3 /* ViewControllerResolver.swift in Sources */,
-				55F29FDF245735DA0081E329 /* SearchControllerProvider.swift in Sources */,
+				55F29FDF245735DA0081E329 /* SearchBar.swift in Sources */,
 				553B0E2224564FAC004DEFA3 /* AppDelegate.swift in Sources */,
 				553B0E2424564FAC004DEFA3 /* SceneDelegate.swift in Sources */,
 				553B0E2624564FAC004DEFA3 /* ContentView.swift in Sources */,
