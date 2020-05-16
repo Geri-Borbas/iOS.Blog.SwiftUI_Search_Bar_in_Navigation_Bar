@@ -22,6 +22,13 @@ class SearchBar: NSObject, ObservableObject
         super.init()
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchResultsUpdater = self
+        
+        addScopes()
+    }
+    
+    func addScopes()
+    {
+        self.searchController.searchBar.scopeButtonTitles = ["All", "Planets", "Dwarf Planets"]
     }
 }
 
