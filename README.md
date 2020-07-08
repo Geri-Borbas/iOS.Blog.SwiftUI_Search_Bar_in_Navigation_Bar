@@ -1,11 +1,10 @@
 # SwiftUI Search Bar in Navigation Bar
-🔍SwiftUI search bar in the navigation bar.
+🔍 SwiftUI search bar in the navigation bar.
 
 
 <p align="center"><img src="SwiftUI_Search_Bar_in_Navigation_Bar/Documentation/SwiftUI_Search_Bar_in_Navigation_Bar@2x.png" width="900"></p>
 
-
-See [`SearchBar/SearchBar.swift`] for details, [`ContentView.swift`] for usage.
+Complementary repository for article [**SwiftUI Search Bar in the Navigation Bar**]. For more details on motivations and implementation please refer to the full article, or lookup the basic usage example below otherwise.
 
 ```Swift
 struct ContentView: View
@@ -52,5 +51,6 @@ struct ContentView: View
 > Licensed under the [**MIT License**](https://en.wikipedia.org/wiki/MIT_License).
 
 
+[**SwiftUI Search Bar in the Navigation Bar**]: http://blog.eppz.eu/swiftui-search-bar-in-the-navigation-bar
 [`SearchBar/SearchBar.swift`]: SwiftUI_Search_Bar_in_Navigation_Bar/SearchBar/SearchBar.swift
 [`ContentView.swift`]: SwiftUI_Search_Bar_in_Navigation_Bar/ContentView.swift
