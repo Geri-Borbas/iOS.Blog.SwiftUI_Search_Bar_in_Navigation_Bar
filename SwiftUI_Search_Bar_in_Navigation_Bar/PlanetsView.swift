@@ -10,7 +10,7 @@ import SwiftUI
 
 
 
-struct ContentView: View
+struct PlanetsView: View
 {
     
     
@@ -107,5 +107,5 @@ struct LabelStyle: ViewModifier
 struct ContentView_Previews: PreviewProvider
 {
     static var previews: some View
-    { ContentView().environment(\.colorScheme, .dark) }
+    { PlanetsView().environment(\.colorScheme, .dark) }
 }
