@@ -8,10 +8,7 @@
 
 import Foundation
 
-
-class PlanetsViewModel
-{
-    
+class PlanetsViewModel {
    
     let url = URL(string:
         "https://api.le-systeme-solaire.net/rest/bodies/" +
@@ -19,31 +16,28 @@ class PlanetsViewModel
         "&filter[]=isPlanet,neq,false"
         )!
     
-    
-    func fetch()
-    {
-        let task = URLSession.shared.dataTask(with: url, completionHandler:
-        {
-            data, response, error in
-            
-            // Log.
-            print(response)
-            
-            // Check error.
-            if error != nil
-            {
-                print(error)
-                return
+    func fetch() {
+        let task = URLSession.shared.dataTask(
+            with: url,
+            completionHandler: { data, response, error in
+                
+                // Log.
+                print(String(describing: response))
+                
+                // Check error.
+                if error != nil {
+                    print(String(describing: error))
+                    return
+                }
+                
+                do {
+                    let json = try JSONDecoder().decode(Planets.self, from: data! )
+                    print(json)
+                } catch {
+                    print("Error during JSON serialization: \(error.localizedDescription)")
+                }
             }
-            
-            do
-            {
-                let json = try JSONDecoder().decode(Planets.self, from: data! )
-                print(json)
-            }
-            catch
-            { print("Error during JSON serialization: \(error.localizedDescription)") }
-        })
+        )
         task.resume()
     }
 }

@@ -8,17 +8,11 @@
 
 import Foundation
 
-
-struct Planets: Decodable
-{
-    
+struct Planets: Decodable {
     
     let bodies: [Planet]
     
-    
-    struct Planet: Decodable
-    {
-        
+    struct Planet: Decodable {
         
         let id: String
         let englishName: String

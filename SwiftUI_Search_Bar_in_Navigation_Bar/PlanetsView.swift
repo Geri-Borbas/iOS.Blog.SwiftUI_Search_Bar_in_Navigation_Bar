@@ -8,11 +8,7 @@
 
 import SwiftUI
 
-
-
-struct PlanetsView: View
-{
-    
+struct PlanetsView: View {
     
     struct Planet: Identifiable, Hashable { let id, size, distance: String }
     let planets =
@@ -24,7 +20,7 @@ struct PlanetsView: View
             Planet(id: "Jupiter", size: "71,493 km", distance: "5.2 AU"),
             Planet(id: "Saturn", size: "60,267 km", distance: "9.5 AU"),
             Planet(id: "Uranus", size: "25,557 km", distance: "19.2 AU"),
-            Planet(id: "Neptune", size: "24,766 km", distance: "30.0 AU"),
+            Planet(id: "Neptune", size: "24,766 km", distance: "30.0 AU")
         ] +
         [
             Planet(id: "Ceres", size: "473 km", distance: "2.7 AU"),
@@ -34,34 +30,24 @@ struct PlanetsView: View
             Planet(id: "Eris", size: "1,163 km", distance: "67.7 AU")
         ]
     
-    
     @ObservedObject var searchBar: SearchBar = SearchBar()
     
-    
-    var body: some View
-    {
-        NavigationView
-        {
+    var body: some View {
+        NavigationView {
             List(
-                planets.filter
-                {
+                planets.filter {
                     searchBar.text.isEmpty ||
                     $0.id.localizedStandardContains(searchBar.text)
                 }
-            )
-            {
-                eachPlanet in
-                HStack
-                {
+            ) { eachPlanet in
+                HStack {
                     Image("\(eachPlanet.id) thumbnail")
                         .frame(width: 60, height: 60)
-                    VStack(alignment: .leading, spacing: 0)
-                    {
+                    VStack(alignment: .leading, spacing: 0) {
                         Text(eachPlanet.id)
                             .font(.title)
                             .fontWeight(.bold)
-                        HStack
-                        {
+                        HStack {
                             Text("Radius")
                                 .modifier(LabelStyle())
                             Text(eachPlanet.size)
@@ -85,13 +71,9 @@ struct PlanetsView: View
     }
 }
 
-
-struct LabelStyle: ViewModifier
-{
+struct LabelStyle: ViewModifier {
     
-    
-    func body(content: Content) -> some View
-    {
+    func body(content: Content) -> some View {
         content
             .font(.caption)
             .foregroundColor(Color(.systemBackground))
@@ -102,10 +84,8 @@ struct LabelStyle: ViewModifier
     }
 }
 
-
-
-struct ContentView_Previews: PreviewProvider
-{
-    static var previews: some View
-    { PlanetsView().environment(\.colorScheme, .dark) }
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        PlanetsView().environment(\.colorScheme, .dark)
+    }
 }
