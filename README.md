@@ -10,31 +10,22 @@ Complementary repository for article [**SwiftUI Search Bar in the Navigation Bar
 struct ContentView: View
 {
     
-    
     var planets =
         ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"] +
         ["Ceres", "Pluto", "Haumea", "Makemake", "Eris"]
     
-    
     @ObservedObject var searchBar: SearchBar = SearchBar()
     
-    
-    var body: some View
-    {
-        NavigationView
-        {
-            List
-            {                
+    var body: some View {
+        NavigationView {
+            List {                
                 ForEach(
-                    planets.filter
-                    {
+                    planets.filter {
                         searchBar.text.isEmpty ||
                         $0.localizedStandardContains(searchBar.text)
                     },
                     id: \.self
-                )
-                {
-                    eachPlanet in
+                ) { eachPlanet in
                     Text(eachPlanet)
                 }
             }
