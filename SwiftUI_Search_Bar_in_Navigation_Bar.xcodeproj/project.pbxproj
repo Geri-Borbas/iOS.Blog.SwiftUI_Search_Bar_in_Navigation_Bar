@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5509F810247F320C002A9429 /* PlanetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5509F80F247F320C002A9429 /* PlanetsViewModel.swift */; };
 		5509F812247F343A002A9429 /* Planets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5509F811247F343A002A9429 /* Planets.swift */; };
+		550A1C4424D4EDE5001E184A /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550A1C4324D4EDE5001E184A /* RootView.swift */; };
+		550A1C4724D4F3EF001E184A /* ParentResolverViewController+SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 550A1C4624D4F3EF001E184A /* ParentResolverViewController+SearchController.swift */; };
 		553B0E2224564FAC004DEFA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B0E2124564FAC004DEFA3 /* AppDelegate.swift */; };
 		553B0E2424564FAC004DEFA3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B0E2324564FAC004DEFA3 /* SceneDelegate.swift */; };
 		553B0E2624564FAC004DEFA3 /* PlanetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553B0E2524564FAC004DEFA3 /* PlanetsView.swift */; };
@@ -22,6 +24,8 @@
 /* Begin PBXFileReference section */
 		5509F80F247F320C002A9429 /* PlanetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetsViewModel.swift; sourceTree = "<group>"; };
 		5509F811247F343A002A9429 /* Planets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planets.swift; sourceTree = "<group>"; };
+		550A1C4324D4EDE5001E184A /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		550A1C4624D4F3EF001E184A /* ParentResolverViewController+SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ParentResolverViewController+SearchController.swift"; sourceTree = "<group>"; };
 		5512C51D24C38F2700EE14C4 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		5512C51E24C38F3400EE14C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		553B0E1E24564FAC004DEFA3 /* SwiftUI_Search_Bar_in_Navigation_Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Search_Bar_in_Navigation_Bar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		550A1C4524D4EDEC001E184A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				550A1C4324D4EDE5001E184A /* RootView.swift */,
+				553B0E2524564FAC004DEFA3 /* PlanetsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		553B0E1524564FAC004DEFA3 = {
 			isa = PBXGroup;
 			children = (
@@ -68,9 +81,9 @@
 		553B0E2024564FAC004DEFA3 /* SwiftUI_Search_Bar_in_Navigation_Bar */ = {
 			isa = PBXGroup;
 			children = (
+				550A1C4524D4EDEC001E184A /* Views */,
 				553B0E2124564FAC004DEFA3 /* AppDelegate.swift */,
 				553B0E2324564FAC004DEFA3 /* SceneDelegate.swift */,
-				553B0E2524564FAC004DEFA3 /* PlanetsView.swift */,
 				5509F80F247F320C002A9429 /* PlanetsViewModel.swift */,
 				5509F811247F343A002A9429 /* Planets.swift */,
 				55F29FE024576D3D0081E329 /* SearchBar */,
@@ -95,6 +108,7 @@
 			children = (
 				55F29FDE245735DA0081E329 /* SearchBar.swift */,
 				553B0E3524565AD4004DEFA3 /* ViewControllerResolver.swift */,
+				550A1C4624D4F3EF001E184A /* ParentResolverViewController+SearchController.swift */,
 			);
 			path = SearchBar;
 			sourceTree = "<group>";
@@ -191,11 +205,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550A1C4424D4EDE5001E184A /* RootView.swift in Sources */,
 				553B0E3624565AD4004DEFA3 /* ViewControllerResolver.swift in Sources */,
 				5509F812247F343A002A9429 /* Planets.swift in Sources */,
 				55F29FDF245735DA0081E329 /* SearchBar.swift in Sources */,
 				553B0E2224564FAC004DEFA3 /* AppDelegate.swift in Sources */,
 				553B0E2424564FAC004DEFA3 /* SceneDelegate.swift in Sources */,
+				550A1C4724D4F3EF001E184A /* ParentResolverViewController+SearchController.swift in Sources */,
 				5509F810247F320C002A9429 /* PlanetsViewModel.swift in Sources */,
 				553B0E2624564FAC004DEFA3 /* PlanetsView.swift in Sources */,
 			);

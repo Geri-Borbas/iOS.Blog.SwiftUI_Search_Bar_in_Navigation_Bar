@@ -33,7 +33,6 @@ struct PlanetsView: View {
     @ObservedObject var searchBar: SearchBar = SearchBar()
     
     var body: some View {
-        NavigationView {
             List(
                 planets.filter {
                     searchBar.text.isEmpty ||
@@ -64,10 +63,8 @@ struct PlanetsView: View {
                         .shadow(color: Color.black, radius: 10)
                 }
             }
-                .navigationBarTitle("Planets")
+                .navigationBarTitle("Planets", displayMode: .inline)
                 .add(self.searchBar)
-        }
-            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
