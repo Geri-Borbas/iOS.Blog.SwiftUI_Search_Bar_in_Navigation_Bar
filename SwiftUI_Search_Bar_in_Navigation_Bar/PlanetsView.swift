@@ -33,34 +33,38 @@ struct PlanetsView: View {
     @ObservedObject var searchBar: SearchBar
     
     var body: some View {
-        List(
-            planets.filter {
-                searchBar.text.isEmpty ||
-                $0.id.localizedStandardContains(searchBar.text)
-            }
-        ) { eachPlanet in
-            HStack {
-                Image("\(eachPlanet.id) thumbnail")
-                    .frame(width: 60, height: 60)
-                VStack(alignment: .leading, spacing: 0) {
-                    Text(eachPlanet.id)
-                        .font(.title)
-                        .fontWeight(.bold)
+        ScrollView {
+            VStack {
+                ForEach(
+                    planets.filter {
+                        searchBar.text.isEmpty ||
+                        $0.id.localizedStandardContains(searchBar.text)
+                    }
+                ) { eachPlanet in
                     HStack {
-                        Text("Radius")
-                            .modifier(LabelStyle())
-                        Text(eachPlanet.size)
-                            .font(.body)
-                            .foregroundColor(Color(.tertiaryLabel))
-                        Text("Distance")
-                            .modifier(LabelStyle())
-                        Text(eachPlanet.distance)
-                            .font(.body)
-                            .foregroundColor(Color(.tertiaryLabel))
+                        Image("\(eachPlanet.id) thumbnail")
+                            .frame(width: 60, height: 60)
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text(eachPlanet.id)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            HStack {
+                                Text("Radius")
+                                    .modifier(LabelStyle())
+                                Text(eachPlanet.size)
+                                    .font(.body)
+                                    .foregroundColor(Color(.tertiaryLabel))
+                                Text("Distance")
+                                    .modifier(LabelStyle())
+                                Text(eachPlanet.distance)
+                                    .font(.body)
+                                    .foregroundColor(Color(.tertiaryLabel))
+                            }
+                        }
+                            .shadow(color: Color.black, radius: 10)
+                            .shadow(color: Color.black, radius: 10)
                     }
                 }
-                    .shadow(color: Color.black, radius: 10)
-                    .shadow(color: Color.black, radius: 10)
             }
         }
             .navigationBarTitle("Planets")
