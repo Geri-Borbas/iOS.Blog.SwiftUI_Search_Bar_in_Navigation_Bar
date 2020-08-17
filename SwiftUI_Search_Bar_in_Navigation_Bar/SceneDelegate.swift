@@ -18,16 +18,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = PlanetsView()
-
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = self.rootViewController()
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+    
+    func rootViewController() -> UIViewController {
+        
+        // Create search bar and content view.
+        let searchBar = SearchBar()
+        let contentViewController = UIHostingController(rootView: PlanetsView(searchBar: searchBar))
+        
+        // Add search bar to hosting view controller.
+        searchBar.add(to: contentViewController)
+        
+        // Create (and setup) navigation stack.
+        let navigationController = UINavigationController(rootViewController: contentViewController)
+            navigationController.navigationBar.prefersLargeTitles = true
+        
+        return navigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

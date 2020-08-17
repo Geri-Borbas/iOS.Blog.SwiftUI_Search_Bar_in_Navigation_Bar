@@ -30,43 +30,40 @@ struct PlanetsView: View {
             Planet(id: "Eris", size: "1,163 km", distance: "67.7 AU")
         ]
     
-    @ObservedObject var searchBar: SearchBar = SearchBar()
+    @ObservedObject var searchBar: SearchBar
     
     var body: some View {
-        NavigationView {
-            List(
-                planets.filter {
-                    searchBar.text.isEmpty ||
-                    $0.id.localizedStandardContains(searchBar.text)
-                }
-            ) { eachPlanet in
-                HStack {
-                    Image("\(eachPlanet.id) thumbnail")
-                        .frame(width: 60, height: 60)
-                    VStack(alignment: .leading, spacing: 0) {
-                        Text(eachPlanet.id)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        HStack {
-                            Text("Radius")
-                                .modifier(LabelStyle())
-                            Text(eachPlanet.size)
-                                .font(.body)
-                                .foregroundColor(Color(.tertiaryLabel))
-                            Text("Distance")
-                                .modifier(LabelStyle())
-                            Text(eachPlanet.distance)
-                                .font(.body)
-                                .foregroundColor(Color(.tertiaryLabel))
-                        }
-                    }
-                        .shadow(color: Color.black, radius: 10)
-                        .shadow(color: Color.black, radius: 10)
-                }
+        List(
+            planets.filter {
+                searchBar.text.isEmpty ||
+                $0.id.localizedStandardContains(searchBar.text)
             }
-                .navigationBarTitle("Planets")
-                .add(self.searchBar)
+        ) { eachPlanet in
+            HStack {
+                Image("\(eachPlanet.id) thumbnail")
+                    .frame(width: 60, height: 60)
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(eachPlanet.id)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    HStack {
+                        Text("Radius")
+                            .modifier(LabelStyle())
+                        Text(eachPlanet.size)
+                            .font(.body)
+                            .foregroundColor(Color(.tertiaryLabel))
+                        Text("Distance")
+                            .modifier(LabelStyle())
+                        Text(eachPlanet.distance)
+                            .font(.body)
+                            .foregroundColor(Color(.tertiaryLabel))
+                    }
+                }
+                    .shadow(color: Color.black, radius: 10)
+                    .shadow(color: Color.black, radius: 10)
+            }
         }
+            .navigationBarTitle("Planets")
             .navigationViewStyle(StackNavigationViewStyle())
     }
 }
@@ -81,11 +78,5 @@ struct LabelStyle: ViewModifier {
             .padding(.vertical, 2.0)
             .background(Color(.quaternaryLabel))
             .clipShape(Capsule())
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        PlanetsView().environment(\.colorScheme, .dark)
     }
 }
