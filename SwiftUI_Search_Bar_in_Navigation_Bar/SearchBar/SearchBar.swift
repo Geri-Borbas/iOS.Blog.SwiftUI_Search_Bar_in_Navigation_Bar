@@ -21,6 +21,7 @@ class SearchBar: NSObject, ObservableObject {
     
     func add(to viewController: UIViewController) {
         viewController.navigationItem.searchController = self.searchController
+        viewController.navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
 

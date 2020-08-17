@@ -32,13 +32,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Create search bar and content view.
         let searchBar = SearchBar()
         let contentViewController = UIHostingController(rootView: PlanetsView(searchBar: searchBar))
+            contentViewController.navigationItem.title = "Planets"
+        
+        // Create (and setup) navigation stack.
+        let navigationController = UINavigationController()
+            navigationController.navigationBar.prefersLargeTitles = true
+        
+        // Root view.
+        let rootViewController = UIHostingController(
+            rootView: RootView(
+                buttonAction: { [weak navigationController] in
+                    // Push content view on button action.
+                    navigationController?.pushViewController(contentViewController, animated: true)
+            }
+        ))
+            rootViewController.navigationItem.title = "Root"
         
         // Add search bar to hosting view controller.
         searchBar.add(to: contentViewController)
         
-        // Create (and setup) navigation stack.
-        let navigationController = UINavigationController(rootViewController: contentViewController)
-            navigationController.navigationBar.prefersLargeTitles = true
+        // Start with root view.
+        navigationController.pushViewController(rootViewController, animated: false)
         
         return navigationController
     }

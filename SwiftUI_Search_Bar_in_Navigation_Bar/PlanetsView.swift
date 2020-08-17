@@ -67,8 +67,6 @@ struct PlanetsView: View {
                 }
             }
         }
-            .navigationBarTitle("Planets")
-            .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
