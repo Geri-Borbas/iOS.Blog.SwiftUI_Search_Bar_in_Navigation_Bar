@@ -1,5 +1,5 @@
 # SwiftUI Search Bar in Navigation Bar
-🔍 SwiftUI search bar in the navigation bar.
+🔍 SwiftUI (1) search bar in the navigation bar.
 
 
 <p align="center"><img src="SwiftUI_Search_Bar_in_Navigation_Bar/Documentation/SwiftUI_Search_Bar_in_Navigation_Bar@2x.png" width="900"></p>
